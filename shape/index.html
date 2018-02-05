@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>各种形状</title>
 		<style type="text/css">
-			*{
-				margin: 10px;
+			* {
+				margin: 0;
 				padding: 0;
 			}
+			
+			body {
+				margin: 50px;
+			}
+			
 			#square {
 				width: 100px;
 				height: 100px;
@@ -89,7 +95,6 @@
 			#star-five {
 				margin: 50px 0;
 				position: relative;
-				display: block;
 				color: #0066CC;
 				width: 0px;
 				height: 0px;
@@ -268,7 +273,6 @@
 			}
 			
 			#egg {
-				display: block;
 				width: 126px;
 				height: 180px;
 				background-color: #0066CC;
@@ -410,28 +414,110 @@
 				width: 12px;
 				height: 12px;
 			}
-			.mt50{
+			
+			/*扇形样式*/
+			#sector {
+				position: relative;
+				width: 200px;
+				height: 200px;
+				border-radius: 100px;
+				background-color: #00A1F5;
+			}
+			
+			.left {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				transform: rotate(0deg);
+				clip: rect(0px, 100px, 200px, 0px);
+				border-radius: 100px;
+				background-color: #0066CC;
+				transform: rotate(-30deg);
+			}
+			
+			.right {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				transform: rotate(0deg);
+				clip: rect(0px, 100px, 200px, 0px);
+				border-radius: 100px;
+				background-color: #0066CC;
+				transform: rotate(-150deg);
+			}
+			
+			
+			.mt50 {
 				margin-top: 50px;
+			}
+			
+			select {
+				font-size: 20px;
+				padding: 5px;
+				outline: none;
+				font-weight: 600;
+			}
+			
+			.hide {
+				display: none;
+			}
+			
+			.hide.active {
+				display: block;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div id="parallelogram"></div>
-		<div id="trapezoid" class="mt50"></div>
-		<div id="star-six" class="mt50"></div>
-		<div id="star-five" class="mt50"></div>
-		<div id="pentagon" class="mt50"></div>
-		<div id="hexagon" class="mt50"></div>
-		<div id="heart" class="mt50"></div>
-		<div id="infinity" class="mt50"></div>
-		<div id="egg" class="mt50"></div>
-		<div id="talkbubble" class="mt50"></div>
-		<div id="burst-8" class="mt50"></div>
-		<div id="cut-diamond" class="mt50"></div>
-		<div id="yin-yang" class="mt50"></div>
+
+		<select name="shape">
+			<option value="parallelogram">平行四边形</option>
+			<option value="trapezoid">梯形</option>
+			<option value="star-six">六角星</option>
+			<option value="star-five">五角星</option>
+			<option value="pentagon">五边形</option>
+			<option value="hexagon">六边形</option>
+			<option value="heart">心形</option>
+			<option value="infinity">无限大</option>
+			<option value="burst-8">八角星</option>
+			<option value="egg">鸡蛋</option>
+			<option value="talkbubble">对话框</option>
+			<option value="cut-diamond">钻石</option>
+			<option value="yin-yang">八卦</option>
+			<option value="sector">扇形</option>
+		</select>
+		<div id="parallelogram" class="hide active mt50"></div>
+		<div id="trapezoid" class="hide mt50"></div>
+		<div id="star-six" class="hide mt50"></div>
+		<div id="star-five" class="hide mt50"></div>
+		<div id="pentagon" class="hide mt50"></div>
+		<div id="hexagon" class="hide mt50"></div>
+		<div id="heart" class="hide mt50"></div>
+		<div id="infinity" class="hide mt50"></div>
+		<div id="egg" class="hide mt50"></div>
+		<div id="talkbubble" class="hide mt50"></div>
+		<div id="burst-8" class="hide mt50"></div>
+		<div id="cut-diamond" class="hide mt50"></div>
+		<div id="yin-yang" class="hide mt50"></div>
+		<div id="sector" class="hide mt50">
+			
+			<div class="left"></div>
+			<div class="right"></div>
+			
+		</div>
+
 		<script type="text/javascript">
+			var el = document.querySelectorAll("select")[0];
+
+			el.addEventListener('change', function() {
+
+				var active = document.querySelectorAll(".hide.active")[0];
+				active.classList.remove('active');
+				document.getElementById(el.value).classList.add('active');
+
+			});
 		</script>
+
 	</body>
 
 </html>

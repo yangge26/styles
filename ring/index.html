@@ -3,12 +3,16 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>环形进度</title>
+		<title>环形</title>
 		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
 			.circleProgress_wrapper {
 				width: 200px;
 				height: 200px;
-				margin: 50px auto;
+				margin: 20px auto;
 				position: relative;
 			}
 			
@@ -93,10 +97,31 @@
 					-webkit-transform: rotate(225deg);
 				}
 			}
+			
+			.gradient-block-vertical {
+				margin: 20px auto;
+				box-sizing: border-box;
+				width: 200px;
+				height: 200px;
+				box-sizing: border-box;
+				border: 20px solid transparent;
+				border-radius: 50%;
+				background-clip: padding-box, border-box;
+				background-origin: padding-box, border-box;
+				background-image: linear-gradient(#fff, #fff), linear-gradient(90deg, #ed7200, #fdcc17);
+			}
+			.title{
+				margin-top: 15px;
+				text-align: center;
+				font-size: 20px;
+				font-weight: 600;
+			}
+			
 		</style>
 	</head>
 
 	<body>
+		<div class="title">环形进度条</div>
 		<div class="circleProgress_wrapper">
 			<div class="wrapper right">
 				<div class="circleProgress rightcircle"></div>
@@ -105,6 +130,10 @@
 				<div class="circleProgress leftcircle"></div>
 			</div>
 		</div>
+		
+		<div class="title">渐变边框</div>
+		<div class="gradient-block-vertical"></div>
+		
 	</body>
 
 </html>

@@ -6,4 +6,4 @@
 - [各种形状](https://yangge26.github.io/styles/shape/index.html)
 - [好看的滚动条](https://yangge26.github.io/styles/scrollbar/index.html)
 - [好看的文字](https://yangge26.github.io/styles/font/index.html)
-- [时间戳](https://yangge26.github.io/styles/timeline/index.html)
+- [时间轴](https://yangge26.github.io/styles/timeline/index.html)

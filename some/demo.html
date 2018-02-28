@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>demo</title>
+		<style>
+			#demo {
+				position: relative;
+				width: 500px;
+				overflow: hidden;
+			}
+			
+			#demo a {
+				display: block;
+			}
+			
+			#demo a:hover:before {
+				left: 500px;
+				transition: left 800ms ease;
+			}
+			
+			#demo a:before {
+				content: "";
+				position: absolute;
+				width: 100px;
+				height: 350px;
+				top: 0;
+				left: -225px;
+				overflow: hidden;
+				background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+				-webkit-transform: skewX(-32deg);
+			}
+			/*图片斜线*/
+			
+			.img-container {
+				position: relative;
+				width: 450px;
+				height: 240px;
+				border: 5px solid #40BCFF;
+			}
+			
+			.img-left {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(img/1.jpg);
+				background-size: cover;
+				width: 100%;
+				height: 240px;
+			}
+			
+			.img-right {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(img/2.jpg);
+				-webkit-mask-image: -webkit-linear-gradient(left top, transparent 50%, blue 50%);
+				background-size: cover;
+				width: 100%;
+				height: 240px;
+			}
+			/*图片折角*/
+			
+			.paper-flip {
+				position: relative;
+				width: 500px;
+				height: 300px;
+			}
+			
+			.image-layer {
+				width: 500px;
+				height: 300px;
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.image-layer img {
+				width: 500px;
+				cursor: pointer;
+			}
+			
+			.image-layer:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: rgba(0, 0, 0, 0.2) #fff;
+				border-radius: 0 0 0 4px;
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+				-webkit-transition: all 0.4s ease-out;
+				transition: all 0.4s ease-out;
+			}
+			
+			.image-layer:hover:before {
+				border-right-width: 80px;
+				border-bottom-width: 80px;
+			}
+			/*图片抖动*/
+			
+			@-webkit-keyframes shake {
+				0% {
+					-webkit-transform: scale(1);
+				}
+				10%,
+				20% {
+					-webkit-transform: scale(0.9) rotate(-3deg);
+				}
+				30%,
+				50%,
+				70%,
+				90% {
+					-webkit-transform: scale(1.1) rotate(3deg);
+				}
+				40%,
+				60%,
+				80% {
+					-webkit-transform: scale(1.1) rotate(-3deg);
+				}
+				100% {
+					-webkit-transform: scale(1) rotate(0);
+				}
+			}
+			
+			.shake:hover {
+				-webkit-animation: shake 1s .2s ease both;
+				-moz-animation: shake 1s .2s ease both;
+			}
+			
+			.box {
+				margin: 50px;
+				width: 400px;
+			}
+			
+			.mt10 {
+				margin-top: 10px;
+			}
+			.title{
+				font-size: 20px;
+				padding: 10px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="title">白光划过图片：</div>
+		
+		<div id="demo">
+			<a href="javascript:;">
+				<img src="img/1.jpg" width="100%">
+			</a>
+		</div>
+		
+		<div class="title">图片斜线：</div>
+
+		<div class="img-container">
+			<div class="img-left"></div>
+			<div class="img-right"></div>
+		</div>
+
+		<div class="title">图片折角：</div>
+		<div class="paper-flip mt10">
+			<div class="image-layer" id="image-layer">
+				<img src="img/2.jpg" alt="">
+			</div>
+		</div>
+
+		<div class="title">图片抖动：</div>
+		<div class="shake box">
+			<img src="img/1.jpg" width="100%"  />
+		</div>
+
+	</body>
+
+</html>

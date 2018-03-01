@@ -144,6 +144,63 @@
 				padding: 10px;
 			}
 			
+			/*3d图片*/
+			.container {
+				width: 300px;
+				height: 180px;
+				position: relative;
+			}
+			
+			.front {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 180px;
+				background-size: 300px 180px;
+				background-image: url(img/1.jpg);
+				overflow: hidden;
+			}
+			
+			.back {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 180px;
+				background-size: 300px 180px;
+				background-image: url(img/2.jpg);
+				transform: rotateY(180deg);
+				overflow: hidden;
+			}
+			
+			.img1{
+				background-position:0 0 ;
+			}
+			
+			.img2{
+				background-position:-100px 0 ;
+			}
+			
+			.img3{
+				background-position:-200px 0 ;
+			}
+			
+			.container .box3d {
+				transition: 0.8s;
+				transform-style: preserve-3d;
+				position: relative;
+				float: left;
+				width: 100px;
+				height: 180px;
+			}
+			
+			
+			
+			.container:hover .box3d {
+				transform: rotateY(180deg);
+			}
+			
 		</style>
 	</head>
 
@@ -173,6 +230,22 @@
 		<div class="title">图片抖动：</div>
 		<div class="shake box">
 			<img src="img/1.jpg" width="100%"  />
+		</div>
+		
+		<div class="title">图片3D效果：</div>
+		<div class="container">
+			<div class="box3d">
+				<div class="front img1"></div>
+				<div class="back img1"></div>
+			</div>
+			<div class="box3d">
+				<div class="front img2"></div>
+				<div class="back img2"></div>
+			</div>
+			<div class="box3d">
+				<div class="front img3"></div>
+				<div class="back img3"></div>
+			</div>
 		</div>
 
 	</body>
